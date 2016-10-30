@@ -1,8 +1,5 @@
 package isertion_sort;
 
-/**
- * Created by yroslav on 10/28/16.
- */
 public class InsertionSort {
     public static int[] sort(int[] inputArray){
         for (int j = 1; j < inputArray.length; j++) {
