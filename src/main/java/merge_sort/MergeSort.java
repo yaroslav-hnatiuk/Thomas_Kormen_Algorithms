@@ -1,31 +1,52 @@
 package merge_sort;
 
 public class MergeSort {
-    public static int[] sort(int[] array){
-        return array;
+    public static void sort(int[] array, int begin, int end)
+    {
+        if(begin == end) {
+            return;
+        }else
+        {
+            int mid = (begin + end) / 2;
+            sort(array, begin, mid);
+            sort(array, mid + 1, end);
+            merge(array, begin, end, mid);
+        }
     }
 
-    public static int[] merge(int[] leftArr, int[] rightArr){
-        int[] array = new int[leftArr.length + rightArr.length];
+    private static int[] merge(int[] array, int begin, int end, int mid){
+        int lengthLeft = begin + mid;
+        int lengthRight = end - mid + 1;
+
+        int[] leftPart = new int[lengthLeft];
+        int[] rightPart = new int[lengthRight];
+
+        for (int i = 0; i < leftPart.length; i++) {
+            leftPart[i] = array[i];
+        }
+
+        for (int i = 0; i < rightPart.length; i++) {
+            rightPart[i] = array[mid + i];
+        }
 
         int l = 0,r = 0, res = 0;
 
-        while ( l < leftArr.length && r < rightArr.length ){
-            if(leftArr[l] < rightArr[r]){
-                array[res++] = leftArr[l++];
+        while ( l < leftPart.length && r < rightPart.length ){
+            if(leftPart[l] < rightPart[r]){
+                array[res++] = leftPart[l++];
             }
 
             else{
-                array[res++] = rightArr[r++];
+                array[res++] = rightPart[r++];
             }
         }
 
-        while (rightArr.length > r){
-            array[res++] = rightArr[r++];
+        while (rightPart.length > r){
+            array[res++] = rightPart[r++];
         }
 
-        while (leftArr.length > l){
-            array[res++] = leftArr[l++];
+        while (leftPart.length > l){
+            array[res++] = leftPart[l++];
         }
 
         return array;
