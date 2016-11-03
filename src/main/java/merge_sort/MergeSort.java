@@ -7,48 +7,45 @@ public class MergeSort {
             return;
         }else
         {
-            int mid = (begin + end) / 2;
-            sort(array, begin, mid);
-            sort(array, mid + 1, end);
+            int mid = (begin + end + 1) / 2;
+            sort(array, begin, mid - 1);
+            sort(array, mid, end);
             merge(array, begin, end, mid);
         }
     }
 
-    private static int[] merge(int[] array, int begin, int end, int mid){
-        int lengthLeft = begin + mid;
-        int lengthRight = end - mid + 1;
+    public static void merge(int[] array, int begin, int end, int mid) {
+        int lPointer = 0, rPointer = 0;
 
-        int[] leftPart = new int[lengthLeft];
-        int[] rightPart = new int[lengthRight];
+        int leftSize = mid - begin;
+        int[] leftPart = new int[leftSize];
 
-        for (int i = 0; i < leftPart.length; i++) {
-            leftPart[i] = array[i];
+        int rightSize = end - mid + 1;
+        int[] rightPart = new int[rightSize];
+
+        for (int i = 0; i < leftSize; i++) {
+            leftPart[i] = array[begin + i];
         }
 
-        for (int i = 0; i < rightPart.length; i++) {
+        for (int i = 0; i < rightSize; i++) {
             rightPart[i] = array[mid + i];
         }
 
-        int l = 0,r = 0, res = 0;
-
-        while ( l < leftPart.length && r < rightPart.length ){
-            if(leftPart[l] < rightPart[r]){
-                array[res++] = leftPart[l++];
+        while(lPointer < leftSize && rPointer < rightSize){
+            if(leftPart[lPointer] < rightPart[rPointer]){
+                array[begin++] = leftPart[lPointer++];
             }
-
             else{
-                array[res++] = rightPart[r++];
+                array[begin++] = rightPart[rPointer++];
             }
         }
 
-        while (rightPart.length > r){
-            array[res++] = rightPart[r++];
+        while (lPointer < leftPart.length){
+            array[begin++] = leftPart[lPointer++];
         }
 
-        while (leftPart.length > l){
-            array[res++] = leftPart[l++];
+        while (rPointer < rightPart.length){
+            array[begin++] = rightPart[rPointer++];
         }
-
-        return array;
     }
 }
