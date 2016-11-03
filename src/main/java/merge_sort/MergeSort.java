@@ -3,7 +3,7 @@ package merge_sort;
 public class MergeSort {
     public static void sort(int[] array, int begin, int end)
     {
-        if(begin == end) {
+        if(begin >= end) {
             return;
         }else
         {
@@ -14,7 +14,8 @@ public class MergeSort {
         }
     }
 
-    public static void merge(int[] array, int begin, int end, int mid) {
+
+    private static void merge(int[] array, int begin, int end, int mid){
         int lPointer = 0, rPointer = 0;
 
         int leftSize = mid - begin;
