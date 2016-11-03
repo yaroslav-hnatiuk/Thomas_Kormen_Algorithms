@@ -15,7 +15,7 @@ public class MergeSort {
     }
 
 
-    private static void merge(int[] array, int begin, int end, int mid){
+    public static void merge(int[] array, int begin, int end, int mid){
         int lPointer = 0, rPointer = 0;
 
         int leftSize = mid - begin;
