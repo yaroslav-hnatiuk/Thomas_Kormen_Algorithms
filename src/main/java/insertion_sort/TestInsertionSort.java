@@ -1,4 +1,4 @@
-package isertion_sort;
+package insertion_sort;
 
 public class TestInsertionSort {
     private static int[] array = {5,2,4,6,1,3};
