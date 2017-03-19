@@ -1,8 +1,5 @@
 package merge_sort_v2;
 
-/**
- * Created by yroslav on 2/12/17.
- */
 public class MergeSort2 {
     private static Comparable[] aux;
 

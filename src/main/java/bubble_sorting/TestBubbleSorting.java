@@ -1,8 +1,10 @@
 package bubble_sorting;
 
+import utils.FillArrayUtil;
+
 public class TestBubbleSorting {
     public static void main(String[] args) {
-        int[] arr = {10,2,45,19,48,22};
+        int[] arr = FillArrayUtil.RandomArray(100_000);
         BubbleSorting bubbleSorting = new BubbleSorting(arr);
         System.out.println(bubbleSorting.toString());
         bubbleSorting.sort();

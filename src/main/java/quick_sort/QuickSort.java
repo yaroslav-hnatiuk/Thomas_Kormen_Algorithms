@@ -1,9 +1,18 @@
 package quick_sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
-    public static void sort(int[] a) {
+    private static int[] a;
+
+    public QuickSort(int[] a) {
+        this.a = a;
+    }
+
+    public static void sort() {
         sort(a, 0, a.length - 1);
     }
+
     private static void sort(int[] a, int lo, int hi) {
         if ((hi - lo) <= 0) return;
 
@@ -33,6 +42,11 @@ public class QuickSort {
         int temp = a[leftPtr];
         a[leftPtr] = a[rightPtr];
         a[rightPtr] = temp;
+    }
+
+    @Override
+    public String toString() {
+        return "QuickSort{}: " + Arrays.toString(a);
     }
 }
 /*{3, 5, 11, 22, 34, 2, 8}*/

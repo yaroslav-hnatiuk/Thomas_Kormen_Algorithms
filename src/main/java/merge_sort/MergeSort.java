@@ -1,12 +1,22 @@
 package merge_sort;
 
+import java.util.Arrays;
+
 public class MergeSort {
-    public static void sort(int[] array, int begin, int end)
-    {
-        if(begin >= end) {
+    private static int[] array;
+
+    public MergeSort(int[] array) {
+        this.array = array;
+    }
+
+    public static void sort() {
+        sort(array, 0, array.length - 1);
+    }
+
+    private static void sort(int[] array, int begin, int end) {
+        if (begin >= end) {
             return;
-        }else
-        {
+        } else {
             int mid = (begin + end + 1) / 2;
             sort(array, begin, mid - 1);
             sort(array, mid, end);
@@ -15,7 +25,7 @@ public class MergeSort {
     }
 
 
-    public static void merge(int[] array, int begin, int end, int mid){
+    private static void merge(int[] array, int begin, int end, int mid) {
         int lPointer = 0, rPointer = 0;
 
         int leftSize = mid - begin;
@@ -32,21 +42,25 @@ public class MergeSort {
             rightPart[i] = array[mid + i];
         }
 
-        while(lPointer < leftSize && rPointer < rightSize){
-            if(leftPart[lPointer] < rightPart[rPointer]){
+        while (lPointer < leftSize && rPointer < rightSize) {
+            if (leftPart[lPointer] < rightPart[rPointer]) {
                 array[begin++] = leftPart[lPointer++];
-            }
-            else{
+            } else {
                 array[begin++] = rightPart[rPointer++];
             }
         }
 
-        while (lPointer < leftPart.length){
+        while (lPointer < leftPart.length) {
             array[begin++] = leftPart[lPointer++];
         }
 
-        while (rPointer < rightPart.length){
+        while (rPointer < rightPart.length) {
             array[begin++] = rightPart[rPointer++];
         }
+    }
+
+    @Override
+    public String toString() {
+        return "MergeSort{}: " + Arrays.toString(array);
     }
 }
