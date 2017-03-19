@@ -4,7 +4,6 @@ public class QuickSort {
     public static void sort(int[] a) {
         sort(a, 0, a.length - 1);
     }
-
     private static void sort(int[] a, int lo, int hi) {
         if ((hi - lo) <= 0) return;
 
@@ -17,8 +16,6 @@ public class QuickSort {
 
     private static int partition(int[] a, int pivot, int lo, int hi) {
         int leftPtr = lo - 1, rightPtr = hi;
-
-
         while (true) {
             while (a[++leftPtr] < pivot) ;
             while (a[--rightPtr] > pivot && rightPtr > 0);
@@ -28,9 +25,7 @@ public class QuickSort {
             else
                 swap(a,rightPtr,leftPtr);
         }
-
         swap(a, leftPtr, hi);
-
         return leftPtr;
     }
 

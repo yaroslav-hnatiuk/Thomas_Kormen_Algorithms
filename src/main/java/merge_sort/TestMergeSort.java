@@ -1,11 +1,6 @@
 package merge_sort;
 
-import merge_sort_v2.MergeSort2;
-import quick_sort.QuickSort;
-
-import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import insertion_sort.InsertionSort;
 
 public class TestMergeSort {
     public static int[] array = /*{1, 23, 67, 16, 4, 7, 12, 10, 20, 28, 19, 19, 11, 121, 271}*/ {3, 5, 11, 22, 34, 2, 8};
@@ -20,7 +15,7 @@ public class TestMergeSort {
             System.out.print(e + " ");
         }
 
-        QuickSort.sort(array);
+        InsertionSort.sort(array);
 
         System.out.println("\narray size after: " + array.length);
         for (int e :

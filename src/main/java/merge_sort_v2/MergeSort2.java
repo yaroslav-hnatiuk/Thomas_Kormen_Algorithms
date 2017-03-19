@@ -29,7 +29,6 @@ public class MergeSort2 {
             else if (less(aux[j], aux[i])) a[k] = aux[j++];
             else a[k] = aux[i++];
         }
-
     }
 
     private static boolean less(Comparable comparable, Comparable comparable1) {
