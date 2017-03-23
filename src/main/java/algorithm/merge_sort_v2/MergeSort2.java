@@ -1,4 +1,4 @@
-package merge_sort_v2;
+package algorithm.merge_sort_v2;
 
 public class MergeSort2 {
     private static Comparable[] aux;

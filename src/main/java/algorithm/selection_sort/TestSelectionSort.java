@@ -1,4 +1,4 @@
-package selection_sort;
+package algorithm.selection_sort;
 
 public class TestSelectionSort {
     private static int[] array = {5,2,4,6,1,3};

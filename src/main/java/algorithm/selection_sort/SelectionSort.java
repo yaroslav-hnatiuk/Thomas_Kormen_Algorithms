@@ -1,4 +1,4 @@
-package selection_sort;
+package algorithm.selection_sort;
 
 public class SelectionSort {
     public static int[] sort(int[] array){

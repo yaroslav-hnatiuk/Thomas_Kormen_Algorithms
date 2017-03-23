@@ -1,4 +1,4 @@
-import merge_sort.MergeSort;
+import algorithm.merge_sort.MergeSort;
 import org.junit.Test;
 import quick_sort.QuickSort;
 import utils.FillArrayUtil;

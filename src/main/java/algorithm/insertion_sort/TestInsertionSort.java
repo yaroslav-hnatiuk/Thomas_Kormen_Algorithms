@@ -1,4 +1,4 @@
-package insertion_sort;
+package algorithm.insertion_sort;
 
 import utils.FillArrayUtil;
 

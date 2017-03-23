@@ -1,4 +1,4 @@
-package insertion_sort;
+package algorithm.insertion_sort;
 
 public class InsertionSort {
     public static int[] sort(int[] inputArray){
