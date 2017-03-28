@@ -16,20 +16,32 @@ public class QueueOfInteger {
     }
 
     public void insert(int value) {
-        if (rear < maxSize && rear < front) {
+        if (nElem == maxSize) {
+            System.out.println("Queue is full!!!");
+        } else if (rear < maxSize - 1) {
             array[++rear] = value;
             ++nElem;
-        } else if (rear >= maxSize && front > 0) {
+        } else if (rear >= maxSize - 1 && front > 0) {
             rear = -1;
             array[++rear] = value;
             ++nElem;
-        } else {
-            System.out.println("Queue is full!!!");
         }
     }
 
     public int remove() {
-        return 0;
+        if (nElem == 0){
+            System.out.println("The queue is empty!!!");
+            return 0;
+        }
+        if (front >= maxSize - 1) {
+            int top = array[front];
+            front = 0;
+            nElem--;
+            return top;
+        }else {
+            nElem--;
+            return array[front++];
+        }
     }
 
     public int peekFront() {
@@ -37,5 +49,17 @@ public class QueueOfInteger {
             return array[front];
         else
             return 0;
+    }
+
+    public int size() {
+        return nElem;
+    }
+
+    public int getRear() {
+        return rear;
+    }
+
+    public int getFront() {
+        return front;
     }
 }
