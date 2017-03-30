@@ -1,5 +1,7 @@
 package data_struckture.queue;
 
+import java.util.Optional;
+
 public class QueueOfInteger {
     private Integer[] array;
     private int maxSize;
@@ -16,39 +18,46 @@ public class QueueOfInteger {
     }
 
     public void insert(int value) {
-        if (nElem == maxSize) {
-            System.out.println("Queue is full!!!");
-        } else if (rear < maxSize - 1) {
+        if(!this.isQueueFull()) {
+            if (rear == maxSize - 1) {
+                rear = -1;
+            }
+            nElem++;
             array[++rear] = value;
-            ++nElem;
-        } else if (rear >= maxSize - 1 && front > 0) {
-            rear = -1;
-            array[++rear] = value;
-            ++nElem;
+        }else{
+            System.out.println("The queue is full.");
         }
     }
 
-    public int remove() {
-        if (nElem == 0){
-            System.out.println("The queue is empty!!!");
-            return 0;
-        }
-        if (front >= maxSize - 1) {
-            int top = array[front];
-            front = 0;
+    public Optional remove() {
+        if(!this.isQueueEmpty()) {
+            int value = array[front];
+            if (front == maxSize - 1) {
+                front = -1;
+            }
             nElem--;
-            return top;
-        }else {
-            nElem--;
-            return array[front++];
+            front++;
+            return Optional.of(value);
+        }else{
+            System.out.println("The queue is empty.");
+            return Optional.empty();
         }
     }
 
     public int peekFront() {
-        if (nElem != 0)
-            return array[front];
-        else
-            return 0;
+        return array[front];
+    }
+
+    boolean isQueueEmpty() {
+        return nElem <= 0;
+    }
+
+    boolean isQueueFull(){
+        return nElem == maxSize;
+    }
+
+    public int getNElem() {
+        return nElem;
     }
 
     public int size() {
